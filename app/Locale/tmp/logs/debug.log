@@ -1,0 +1,227 @@
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 11:59:52 Notice: Notice (8): Undefined index: return_yards in [/home/davmag30/cfb-challenge.com/app/View/Playerentries/edit.ctp, line 84]
+Trace:
+printPosition - APP/View/Playerentries/edit.ctp, line 84
+include - APP/View/Playerentries/edit.ctp, line 43
+View::_evaluate() - CORE/Cake/View/View.php, line 948
+View::_render() - CORE/Cake/View/View.php, line 910
+View::render() - CORE/Cake/View/View.php, line 471
+Controller::render() - CORE/Cake/Controller/Controller.php, line 954
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 198
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 12:50:31 Notice: Notice (8): Undefined offset: 1 in [/home/davmag30/cfb-challenge.com/app/Controller/StandingsController.php, line 14]
+Trace:
+StandingsController::index() - APP/Controller/StandingsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-08-31 19:46:02 Notice: Notice (8): Undefined offset: 1 in [/home/davmag30/cfb-challenge.com/app/Controller/StandingsController.php, line 14]
+Trace:
+StandingsController::index() - APP/Controller/StandingsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-09-01 07:11:01 Notice: Notice (8): Undefined offset: 1 in [/home/davmag30/cfb-challenge.com/app/Controller/StandingsController.php, line 14]
+Trace:
+StandingsController::index() - APP/Controller/StandingsController.php, line 14
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-09-29 07:51:43 Notice: Array to string conversion in [/home/davmag30/cfb-challenge.com/lib/Cake/Model/Datasource/DboSource.php, line 2455]
+2015-09-29 07:51:43 Notice: Array to string conversion in [/home/davmag30/cfb-challenge.com/lib/Cake/Model/Datasource/DboSource.php, line 2455]
+2015-09-29 09:14:00 Notice: Array to string conversion in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 26]
+2015-09-29 09:14:41 Notice: Notice (8): Array to string conversion in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 26]
+Trace:
+PlayerEntry::espnParser() - APP/Model/Playerentry.php, line 26
+PlayerentriesController::espnParser() - APP/Controller/PlayerentriesController.php, line 16
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE/Cake/Controller/Controller.php, line 490
+Dispatcher::_invoke() - CORE/Cake/Routing/Dispatcher.php, line 191
+Dispatcher::dispatch() - CORE/Cake/Routing/Dispatcher.php, line 165
+[main] - APP/webroot/index.php, line 108
+
+2015-09-29 09:41:46 Notice: Undefined offset: 0 in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 40]
+2015-09-29 09:47:24 Notice: Undefined variable: awayTds in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 231]
+2015-09-29 09:47:24 Notice: Undefined variable: awaySafeties in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 232]
+2015-09-29 09:47:24 Notice: Undefined variable: homeTds in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 246]
+2015-09-29 09:47:24 Notice: Undefined variable: homeSafeties in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 247]
+2015-09-29 09:51:00 Notice: Undefined index: Player in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 151]
+2015-09-29 09:52:48 Notice: Undefined index: Player in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 151]
+2015-09-29 09:54:50 Notice: Array to string conversion in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 90]
+2015-09-29 09:55:49 Notice: Undefined index: Player in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 153]
+2015-09-29 09:57:44 Notice: Undefined index: Player in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 153]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:57 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:09:58 Notice: Undefined index: PlayerEntry in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 71]
+2015-09-29 10:19:37 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:38 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:38 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:38 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:39 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
+2015-09-29 10:19:40 Notice: Undefined index: id in [/home/davmag30/cfb-challenge.com/app/Model/Playerentry.php, line 69]
