@@ -147,8 +147,8 @@
             $this->set('schools', $schools);
             $this->set('playerentries', $playerentries);
             $this->set('selections', $this->buildPlayerSelections($userentry, $playerentries));
-            $playerData = $this->Player->printPlayersData($start, $size, $players, $userentries, $schedule, $schools);
-            $this->set('playerData', $playerData);
+            //$playerData = $this->Player->printPlayersData($start, $size, $players, $userentries, $schedule, $schools);
+            //$this->set('playerData', $playerData);
         }
 
         private function getGamesSchedule($weekId) {
@@ -400,35 +400,132 @@
         $this->Player = ClassRegistry::init('Player');
         $this->Week = ClassRegistry::init('Week');
         $this->School = ClassRegistry::init('School');
-        //$this->Playerentry = ClassRegistry::init('Playerentry');
+        $this->Playerentry = ClassRegistry::init('Playerentry');
 
         $weekId = 14;
         $userId = 1;
         $userentry = $this->getUserentry($weekId);
         $players = $this->Player->getAvailablePlayers();
         $schedule = $this->getGamesSchedule($weekId);
+        /* $schools = $this->School->find('list', array('recursive' => -1));*/
+        $week = $this->Week->find('first', array('conditions' => array('id' => $weekId), 'recursive' => -1));
+        $userentries = $this->Userentry->calculatePreviousUserEntries($weekId, $week['Week']['playoff_fl'], $userId);
+
+        $playerentries = array();
+        if(isset($userentry['Userentry'])) {
+            $playerentries = $this->Playerentry->getPlayerentries($userentry['Userentry']);
+        }
+
+        $this->set('userentry', json_encode($userentry, JSON_HEX_APOS));
+        $this->set('players', json_encode($players, JSON_HEX_APOS));
+        $this->set('playerentries', json_encode($playerentries, JSON_HEX_APOS));
+    }
+
+    public function getPlayerData($weekId, $userId, $position) {
+        $layout = 'ajax'; //<-- No LAYOUT VERY IMPORTANT!!!!!
+        $this->autoRender = false;  // <-- NO RENDER THIS METHOD HAS NO VIEW VERY IMPORTANT!!!!!
+        $this->Player = ClassRegistry::init('Player');
+        $this->Week = ClassRegistry::init('Week');
+        $this->School = ClassRegistry::init('School');
+
+        //$userentry = $this->getUserentry($weekId);
+        $players = $this->Player->getAvailablePlayers();
+        $schedule = $this->getGamesSchedule($weekId);
         $schools = $this->School->find('list', array('recursive' => -1));
         $week = $this->Week->find('first', array('conditions' => array('id' => $weekId), 'recursive' => -1));
         $userentries = $this->Userentry->calculatePreviousUserEntries($weekId, $week['Week']['playoff_fl'], $userId);
-        $this->set('playerData', $this->Player->printPlayersData($players, $userentries, $schedule, $schools));
+
+        $data = array();
+        // loop through all the player records and build the json array
+        foreach($players[$position] as $player) {
+            $opponentID = $this->getOpponentID($player, $schedule);
+            $opponent = "";
+            if($opponentID != "") {
+                $opponent = $schools[$opponentID];
+            }
+
+            $button = '';
+            if(!isset($userentries[$position][$player['Player']['id']])) {
+                $button = $this->getButton($player, $schedule);
+            }
+
+            array_push($data,
+                array(
+                    $button,
+                    $player['Player']['name'].'<br/>'.$this->getPlayerSchool($player),
+                    $opponent,
+                    $player[0]['SUM(points)'],
+                    $player[0]['SUM(pass_yards)'],
+                    $player[0]['SUM(pass_tds)'],
+                    $player[0]['SUM(rush_yards)'],
+                    $player[0]['SUM(rush_tds)'],
+                    $player[0]['SUM(receive_yards)'],
+                    $player[0]['SUM(receive_tds)'],
+                    $player[0]['SUM(return_yards)'],
+                    $player[0]['SUM(return_tds)'],
+                    $player[0]['SUM(field_goals)'],
+                    $player[0]['SUM(pat)'],
+                    $player[0]['SUM(points_allowed)'],
+                    $player[0]['SUM(fumble_recovery)'],
+                    $player[0]['SUM(def_ints)'],
+                    $player[0]['SUM(def_tds)'],
+                    $player[0]['SUM(safety)']
+                    )
+                );
+        }
+        $json = '{"data":'.json_encode($data).'}';
+        CakeLog::write('debug',  $json);
+        return $json;
     }
 
-    public function getPlayerData($weekId, $userId) {
-        $layout = 'ajax'; //<-- No LAYOUT VERY IMPORTANT!!!!!
-        $this->autoRender = false;  // <-- NO RENDER THIS METHOD HAS NO VIEW VERY IMPORTANT!!!!!
-//        $this->Player = ClassRegistry::init('Player');
-//        $this->Week = ClassRegistry::init('Week');
-//        $this->School = ClassRegistry::init('School');
-//
-//        $userentry = $this->getUserentry($weekId);
-//        $players = $this->Player->getAvailablePlayers();
-//        $schedule = $this->getGamesSchedule($weekId);
-//        $schools = $this->School->find('list', array('recursive' => -1));
-//        $week = $this->Week->find('first', array('conditions' => array('id' => $weekId), 'recursive' => -1));
-//        $userentries = $this->Userentry->calculatePreviousUserEntries($weekId, $week['Week']['playoff_fl'], $userId);
-//        return $this->Player->printPlayersData($players, $userentries, $schedule, $schools);
-        $data = array('' => '', 'name' => 'Trace McSorley');
-        return json_encode($data);
+    private function getButton($player, $schedule) {
+        $buttonId = $player['Player']['id'];
+        $buttonLabel = $this->getButtonLabel($player, $schedule);
+        $disabled = $this->getDisabledAttribute($buttonLabel);
+        $button = '<button id="'.$buttonId.'"'.$disabled.' class="select-player" onclick="selectPlayer()">'.$buttonLabel.'</button>';
+        return $button;
     }
-  }
+
+    private function getButtonLabel($player, $schedule) {
+        $label = 'Select';
+        if(isset($schedule[$player['Player']['school_id']])) {
+            $game = $schedule[$player['Player']['school_id']]['Game'];
+            $lockedTime = strtotime($game['time']) - 10 * 60;
+            if(time() > $lockedTime) {
+                $label = "Locked";
+            }
+        } else {
+            $label = "Inactive";
+        }
+        return $label;
+    }
+
+    private function getDisabledAttribute($buttonLabel) {
+        $class = '';
+        if('Select' != $buttonLabel) {
+            $class = " disabled='disabled'";
+        }
+        return $class;
+    }
+
+    private function getOpponentID($player, $schedule) {
+        if(isset($schedule[$player['Player']['school_id']])) {
+            $awaySchoolId = $schedule[$player['Player']['school_id']]['Game']['away_school_id'];
+            $homeSchoolId = $schedule[$player['Player']['school_id']]['Game']['home_school_id'];
+            if($player['Player']['school_id'] == $awaySchoolId) {
+                $schoolId = $homeSchoolId;
+            } else {
+                $schoolId = $awaySchoolId;
+            }
+            return $schoolId;
+        }
+        return "";
+    }
+    private function getPlayerSchool($player) {
+        if(isset($player['Player']['School']['name'])) {
+            return $player['Player']['School']['name'];
+        }
+        return "";
+    }
+}
 ?>

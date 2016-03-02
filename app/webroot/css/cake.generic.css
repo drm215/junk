@@ -746,4 +746,45 @@ pre {
 
 .strike {
     text-decoration: line-through;
-	}	
+}
+
+#toggle-position-div {
+	padding: 5px 5px 5px 5px;
+}
+
+#wrapper {
+    width: 100%;
+    min-width: 960px;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+#contentliquid {
+    float: left;
+    width: 100%;
+}
+
+#contentwrap {
+    margin-left: 300px;
+    float: left;
+}
+
+#content {
+    background: #FFFFFF;
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+    margin: 5px;
+}
+
+#leftcolumnwrap {
+    width: 300px;
+    margin-left: -100%;
+    float: left;
+}
+
+#leftcolumn {
+    border-radius: 10px;
+    border: 1px solid #ebebeb;
+    margin: 5px;
+}
+

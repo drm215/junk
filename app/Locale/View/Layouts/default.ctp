@@ -50,7 +50,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
     ?>
     <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.11.4/themes/ui-lightness/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css"/>
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>

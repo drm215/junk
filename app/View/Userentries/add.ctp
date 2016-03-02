@@ -32,7 +32,7 @@
         </tbody>
     </table>
 </div><div style="width:50%; display:inline-block;">
-    <?php echo $playerData; ?>
+
         </div>
 
     <input id="QB_id" type="hidden" value="<?php echo isset($userentry['Userentry']['qb_id']) ? $userentry['Userentry']['qb_id'] : ""; ?>"/>

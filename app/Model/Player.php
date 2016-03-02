@@ -247,7 +247,7 @@
             }
 
             $class = "";
-            if(isset($userentries[$position][$row['Player']['id']])) {
+            if(!isset($userentries[$position][$row['Player']['id']])) {
                 $alreadyPlayed = true;
                 $class = "strike";
             }
