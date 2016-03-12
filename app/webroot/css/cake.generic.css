@@ -752,7 +752,7 @@ pre {
 	padding: 5px 5px 5px 5px;
 }
 
-#wrapper {
+#player-wrapper {
     width: 100%;
     min-width: 960px;
     max-width: 2000px;
@@ -769,11 +769,12 @@ pre {
     float: left;
 }
 
-#content {
+#player-content {
     background: #FFFFFF;
     border-radius: 10px;
     border: 1px solid #ebebeb;
     margin: 5px;
+    padding: 10px 20px 40px 20px;
 }
 
 #leftcolumnwrap {
@@ -788,3 +789,15 @@ pre {
     margin: 5px;
 }
 
+.player-data-error {
+    color: #FF0000;	
+}
+
+#tooltip-player-info {
+    font-size: 75%;
+    margin: 5px;
+}
+
+.tooltip {
+    max-width: 600px;
+}

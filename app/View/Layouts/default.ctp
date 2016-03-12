@@ -54,6 +54,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
     <script src="http://cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script>
+    <script src="http://cdn.datatables.net/plug-ins/1.10.11/api/processing().js"></script>
 
     <?php echo $this->Html->css('jquery.dataTables.min_override'); ?>
 </head>
