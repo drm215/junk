@@ -195,12 +195,64 @@ var playerData = {
         var playerName = data[3].slice(0, data[3].indexOf('<br/>'));
         var position = $('.highlight').attr('id').split('-')[0];
         playerData.setSelectedPlayer(position, data[0], data[3].slice(0, data[3].indexOf('<br/>')), playerData.getTooltip($('#hidden-position').val(), id));
+        playerData.validatePlayersUnique();
     },
     triggerErrors: function() {
+        console.log(playerData.errors);
         $.each(playerData.errors, function(key, value) {
             if(!$.isEmptyObject(value)) {
                 $('#' + key + '-player-name-error').html('<br/>' + value);
             }
         });
+    },
+    validatePlayersUnique: function() {
+        var rb1 = false;
+        var rb2 = false;
+        var wr1 = false;
+        var wr2 = false;
+        var f = false;
+        
+        if(!$.isEmptyObject($('#rb1-player-name').text()) && $('#rb1-player-name').text() === $('#rb2-player-name').text()) {
+            rb1 = true;
+            rb2 = true;
+        }
+        if(!$.isEmptyObject($('#rb1-player-name').text()) && $('#rb1-player-name').text() === $('#f-player-name').text()) {
+            rb1 = true;
+            f = true;
+        }
+        if(!$.isEmptyObject($('#rb2-player-name').text()) && $('#rb2-player-name').text() === $('#f-player-name').text()) {
+            rb2 = true;
+            f = true;
+        }
+        
+        if(!$.isEmptyObject($('#wr1-player-name').text()) && $('#wr1-player-name').text() === $('#wr2-player-name').text()) {
+            wr1 = true;
+            wr2 = true;
+        }
+        if(!$.isEmptyObject($('#wr1-player-name').text()) && $('#wr1-player-name').text() === $('#f-player-name').text()) {
+            wr1 = true;
+            f = true;
+        }
+        if(!$.isEmptyObject($('#wr2-player-name').text()) && $('#wr2-player-name').text() === $('#f-player-name').text()) {
+            wr2 = true;
+            f = true;
+        }
+        
+        $('.player-data-error').html('');
+        if(rb1) {
+            $('#rb1-player-name-error').html('<br/>This player cannot be used more than once.');
+        }
+        if(rb2) {
+            $('#rb2-player-name-error').html('<br/>This player cannot be used more than once.');
+        }
+        if(wr1) {
+            $('#wr1-player-name-error').html('<br/>This player cannot be used more than once.');
+        }
+        if(wr2) {
+            $('#wr2-player-name-error').html('<br/>This player cannot be used more than once.');
+        }
+        if(f) {
+            $('#f-player-name-error').html('<br/>This player cannot be used more than once.');
+        }
     }
 };
