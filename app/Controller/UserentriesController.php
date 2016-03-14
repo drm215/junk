@@ -227,6 +227,9 @@
         $this->School = ClassRegistry::init('School');
         $this->Playerentry = ClassRegistry::init('Playerentry');
 
+        /*$schools = $this->School->findAndAdjustIndex();
+        pr($schools);*/
+
         $userentry = $this->getUserentry($weekId);
         $players = $this->Player->getAvailablePlayers();
 
@@ -273,7 +276,7 @@
         CakeLog::write('debug', "weekId: " . $weekId);
         CakeLog::write('debug', "userId: " . $userId);
         CakeLog::write('debug', "position: " . $position);
-        //CakeLog::write('debug',  'getPlayerData: weekId = ' . $weekId . ', userId = ' . $userId . ', position = ' + $position);
+
         $layout = 'ajax'; //<-- No LAYOUT VERY IMPORTANT!!!!!
         $this->autoRender = false;  // <-- NO RENDER THIS METHOD HAS NO VIEW VERY IMPORTANT!!!!!
         $this->Player = ClassRegistry::init('Player');
@@ -283,7 +286,7 @@
         //$userentry = $this->getUserentry($weekId);
         $players = $this->Player->getAvailablePlayers();
         $schedule = $this->getGamesSchedule($weekId);
-        $schools = $this->School->find('list', array('recursive' => -1));
+        $schools = $this->School->findAndAdjustIndex();
         $week = $this->Week->find('first', array('conditions' => array('id' => $weekId), 'recursive' => -1));
         $userentries = $this->Userentry->calculatePreviousUserEntries($weekId, $week['Week']['playoff_fl'], $userId);
 
@@ -292,9 +295,10 @@
         // loop through all the player records and build the json array
         foreach($players[$position] as $player) {
             $opponentID = $this->getOpponentID($player, $schedule);
+            $espnId = $this->getOpponentEspnID($player, $schedule);
             $opponent = "";
             if($opponentID != "") {
-                $opponent = $schools[$opponentID];
+                $opponent = '<img src="../../app/webroot/img/logos/' . $schools[$opponentID]['espn_id'] . '.png" title="' . $schools[$opponentID]['name'] . '">';
             }
 
             $button = '';
@@ -366,9 +370,22 @@
         }
         return $class;
     }
-
     private function getOpponentID($player, $schedule) {
         if(isset($schedule[$player['Player']['school_id']])) {
+            $awaySchoolId = $schedule[$player['Player']['school_id']]['Game']['away_school_id'];
+            $homeSchoolId = $schedule[$player['Player']['school_id']]['Game']['home_school_id'];
+            if($player['Player']['school_id'] == $awaySchoolId) {
+                $schoolId = $homeSchoolId;
+            } else {
+                $schoolId = $awaySchoolId;
+            }
+            return $schoolId;
+        }
+        return "";
+    }
+    private function getOpponentEspnID($player, $schedule) {
+        if(isset($schedule[$player['Player']['school_id']])) {
+            //CakeLog::write('debug', $schedule[$player['Player']['school_id']]);
             $awaySchoolId = $schedule[$player['Player']['school_id']]['Game']['away_school_id'];
             $homeSchoolId = $schedule[$player['Player']['school_id']]['Game']['home_school_id'];
             if($player['Player']['school_id'] == $awaySchoolId) {
