@@ -80,7 +80,7 @@ var playerData = {
         console.log('weekId: ' + playerData.weekId);
         console.log('userId: ' + playerData.userId);
         console.log('position: ' + $('#hidden-position').val());
-        return "/challenge/userentries/getPlayerData/" + playerData.weekId + "/" + playerData.userId + "/" + $('#hidden-position').val();
+        return "/userentries/getPlayerData/" + playerData.weekId + "/" + playerData.userId + "/" + $('#hidden-position').val();
     },
     getBasePosition: function(position) {
         var basePosition = position;
@@ -94,9 +94,6 @@ var playerData = {
     setSelectedPlayers: function() {
         var totalPoints = 0;
         var positions = ["QB", "RB1", "RB2", "WR1", "WR2", "F", "K", "D"];
-        positions.forEach(function(position) {
-            console.log(position);
-        });
         for (var i = 0; i < positions.length; i++) {
             if(playerData.userentry[positions[i]]["id"]) {
                 playerData.setSelectedPlayer(positions[i], playerData.userentry[positions[i]]["id"], playerData.userentry[positions[i]]["name"], playerData.getTooltip(positions[i]));
@@ -130,7 +127,7 @@ var playerData = {
         var playerEntry = playerData.playerentries[position];
         //console.log(player);
         var html = '<div id="tooltip-player-info" class="tooltip-player-info">';
-        html += '<h3>' + name + '</h3>';
+        html += '<h3><img src="../../app/webroot/img/logos/2459.png" title="Northern Illinois Huskies"> ' + name + '</h3>';
         html += pposition + ' | ' + school;
         html += '</div>';
         if(playerEntry && playerEntry['Playerentry']) {

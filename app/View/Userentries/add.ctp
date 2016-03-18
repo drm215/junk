@@ -2,7 +2,6 @@
     echo $this->Html->script('userentry.js');
     $errors = getValidationErrors($this->validationErrors);
 ?>
-
 <div id="player-wrapper">
     <div id="contentliquid"><div id="contentwrap">
     <div id="player-content">
@@ -13,7 +12,7 @@
                     <th rowspan="2">Pos</th>
                     <th rowspan="2"></th>
                     <th rowspan="2">Player</th>
-                    <th rowspan="2" style="width: 45px">Opponent</th>
+                    <th rowspan="2">Opp</th>
                     <th rowspan="2">Points</th>
                     <th colspan="2">Passing</th>
                     <th colspan="2">Rushing</th>
