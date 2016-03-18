@@ -1,4 +1,4 @@
-<h3><?php echo $week['Week']['name']; ?></h3>
+<h3><?php //echo $week['Week']['name']; ?></h3>
 
 <table>
 

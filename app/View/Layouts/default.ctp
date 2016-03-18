@@ -45,7 +45,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             $header .= " | ".$user['name']." (".$user['owner'].") | ".$this->Html->link('Logout', '/users/logout');
         }
         $header .= " | ".$this->Html->link('Standings', '/standings');
-        $header .= " | ".$this->Html->link('Playoffs', '/standings/playoffs');
+        //$header .= " | ".$this->Html->link('Playoffs', '/standings/playoffs');
         $header .= " | ".$this->Html->link('Weekly Results', '/standings/weekly');
         $header .= " | ".$this->Html->link('My Picks', '/userentries');
     ?>

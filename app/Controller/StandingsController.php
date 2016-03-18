@@ -3,7 +3,7 @@
 
 		public function index() {
 			$this->Week = ClassRegistry::init('Week');
-			$standings = $this->Standing->find('all', array('conditions' => array('Week.lock_time < NOW()'), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
+			$standings = $this->Standing->find('all', array('conditions' => array('Week.lock_time < NOW()', 'year' => Configure::write('current.year')), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
 
 			$totalPointsArray = array();
 			$detailsArray = array();
@@ -38,32 +38,34 @@
 				$detailsArray[$standing['User']['id']] = $detail;
 			}
 
-			foreach($totalPointsArray as $key => $val) {
-				$detail = $detailsArray[$key];
-				$val = $val - $detailsArray[$key]['lowest'];
-				$totalPointsArray[$key] = $val;
-			}
-			arsort($totalPointsArray);
+			if(!empty($totalPointsArray)) {
+				foreach($totalPointsArray as $key => $val) {
+					$detail = $detailsArray[$key];
+					$val = $val - $detailsArray[$key]['lowest'];
+					$totalPointsArray[$key] = $val;
+				}
+				arsort($totalPointsArray);
 
-			$keys = array_keys($totalPointsArray);
-			$leader = $totalPointsArray[$keys[0]];
-			$playoff = $totalPointsArray[$keys[7]];
-			foreach($totalPointsArray as $key => $val) {
-				$detailsArray[$key]['total_points'] = $val;
-				$behindLeader = $leader - $val;
-				if($behindLeader == 0) {
-					$behindLeader = "-";
-				} else {
-					 $behindLeader = round($behindLeader, 2);
+				$keys = array_keys($totalPointsArray);
+				$leader = $totalPointsArray[$keys[0]];
+				$playoff = $totalPointsArray[$keys[7]];
+				foreach($totalPointsArray as $key => $val) {
+					$detailsArray[$key]['total_points'] = $val;
+					$behindLeader = $leader - $val;
+					if($behindLeader == 0) {
+						$behindLeader = "-";
+					} else {
+						 $behindLeader = round($behindLeader, 2);
+					}
+					$detailsArray[$key]['behind_leader'] = $behindLeader;
+					$behindPlayoffs = $playoff - $val;
+					if($behindPlayoffs <= 0) {
+						$behindPlayoffs = "-";
+					} else {
+						$behindPlayoffs = round($behindPlayoffs, 2);
+					}
+					$detailsArray[$key]['behind_playoff'] = $behindPlayoffs;
 				}
-				$detailsArray[$key]['behind_leader'] = $behindLeader;
-				$behindPlayoffs = $playoff - $val;
-				if($behindPlayoffs <= 0) {
-					$behindPlayoffs = "-";
-				} else {
-					$behindPlayoffs = round($behindPlayoffs, 2);
-				}
-				$detailsArray[$key]['behind_playoff'] = $behindPlayoffs;
 			}
 
 			$this->set('detailsArray', $detailsArray);
@@ -80,24 +82,28 @@
 				$conditions['Week.id'] = $weekId;
 			}
 
+			$standings = array();
+			$otherWeeks = array();
+			
 			$this->Week = ClassRegistry::init('Week');
 			$week = $this->Week->find('first', array('conditions' => $conditions, 'order' => array('Week.lock_time ASC'), 'recursive' => -1));
-			$this->set('week', $week);
+			if(!empty($week)) {
+				$this->set('week', $week);
 
-			if($weekId == null) {
-				$weekId = $week['Week']['id'];
+				if($weekId == null) {
+					$weekId = $week['Week']['id'];
+				}
+				$standings = $this->Standing->find('all', array('conditions' => array('week_id' => $weekId, 'year' => Configure::write('current.year')), 'fields' => array('SUM(Standing.points) AS points', 'User.name', 'User.owner, User.wins, User.id'), 'group' => array('Standing.user_id'), 'order' => array('points DESC')));
+				$otherWeeks = $this->Week->find('all', array('conditions' => array('Week.lock_time < NOW()', 'id !=' => $weekId), 'order' => array('Week.lock_time ASC'), 'recursive' => -1));
+				
 			}
-
-			$standings = $this->Standing->find('all', array('conditions' => array('week_id' => $weekId), 'fields' => array('SUM(Standing.points) AS points', 'User.name', 'User.owner, User.wins, User.id'), 'group' => array('Standing.user_id'), 'order' => array('points DESC')));
 			$this->set('standings', $standings);
-
-			$otherWeeks = $this->Week->find('all', array('conditions' => array('Week.lock_time < NOW()', 'id !=' => $weekId), 'order' => array('Week.lock_time ASC'), 'recursive' => -1));
 			$this->set('otherWeeks', $otherWeeks);
 		}
 
 		public function playoffs() {
-			$standings = $this->Standing->find('all', array('conditions' => array('Week.playoff_fl = 0'), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
-			$playoffStandings = $this->Standing->find('all', array('conditions' => array('Week.playoff_fl = 1'), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
+			$standings = $this->Standing->find('all', array('conditions' => array('Week.playoff_fl = 0', 'year' => Configure::write('current.year')), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
+			$playoffStandings = $this->Standing->find('all', array('conditions' => array('Week.playoff_fl = 1', 'year' => Configure::write('current.year')), 'fields' => array('Standing.week_id', 'Standing.points', 'User.id', 'User.name', 'User.owner', 'User.wins')));
 			$detailsArray = array();
 			$regularPointsArray = array();
 			foreach($standings as $standing) {

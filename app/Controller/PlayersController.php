@@ -74,10 +74,6 @@
             $this->set('duplicates', $duplicates);
         }
 
-        public function getAvailablePlayers($start, $number) {
-            return $this->Player->getAvailablePlayers($start, $number);
-        }
-
         public function getPlayers($start, $increment, $userId, $weekId, $playoffFlag) {
             $this->set('data', $this->Player->getPlayers($start, $increment, $userId, $weekId, $playoffFlag));
         }
@@ -92,6 +88,29 @@
              $this->set('players', $data);
 
             //$this->set('players', $this->Player->find('all', array('recursive' => -1)));
+        }
+      
+        /**
+        Server side validation that the player is locked.
+        **/
+        public function isPlayerLocked($id, $position, $weekId) {
+            $this->Game = ClassRegistry::init('Game');
+
+            $this->unbindModel(array('hasMany' => array('Playerentry')));
+            $this->School->unbindModel(array('hasMany' => array('Player')));
+            $player = $this->find('first', array('conditions' => array('Player.id' => $id), 'recursive' => 0));
+            if(!empty($player)) {
+                $school = $player['School'];
+
+                $game = $this->Game->find('first', array('recursive' => -1, 'conditions' => array('week_id' => $weekId, 'OR' => array('away_school_id' => $player['School']['id'], 'home_school_id' => $player['School']['id']))));
+                if(!empty($game)) {
+                    $lockedTime = strtotime($game['Game']['time']) - 10 * 60;
+                    if(time() > $lockedTime) {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
     }
 ?>

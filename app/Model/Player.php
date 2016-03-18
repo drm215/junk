@@ -4,45 +4,6 @@
         public $belongsTo = array('School');
         public $hasMany = array('Playerentry');
 
-        /**
-        Server side validation that the player is locked.
-        **/
-        public function isPlayerLocked($id, $position, $weekId) {
-            $this->Game = ClassRegistry::init('Game');
-
-            $this->unbindModel(array('hasMany' => array('Playerentry')));
-            $this->School->unbindModel(array('hasMany' => array('Player')));
-            $player = $this->find('first', array('conditions' => array('Player.id' => $id), 'recursive' => 0));
-            if(!empty($player)) {
-                $school = $player['School'];
-
-                $game = $this->Game->find('first', array('recursive' => -1, 'conditions' => array('week_id' => $weekId, 'OR' => array('away_school_id' => $player['School']['id'], 'home_school_id' => $player['School']['id']))));
-                if(!empty($game)) {
-                    $lockedTime = strtotime($game['Game']['time']) - 10 * 60;
-                    if(time() > $lockedTime) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        /**
-        Gets the list of players for the dropdown fields on the Userentry add and edit pages.
-        Restricts based on previous selections and schools who have already played in a given week
-        **/
-        public function getAvailablePlayers() {
-            $increment = 125;
-            $players = array();
-            $players['QB'] = $this->getAvailablePlayersByPosition(array('QB'), $increment);
-            $players['RB'] = $this->getAvailablePlayersByPosition(array('RB'), $increment);
-            $players['WR'] = $this->getAvailablePlayersByPosition(array('WR'), $increment);
-            $players['F'] = $this->getAvailablePlayersByPosition(array('RB','WR','TE'), $increment);
-            $players['K'] = $this->getAvailablePlayersByPosition(array('K'), $increment);
-            $players['D'] = $this->getAvailablePlayersByPosition(array('D'), $increment);
-
-            return $players;
-        }
-
         public function getPlayers($position, $userId, $weekId, $playoffFlag) {
             $this->Game = ClassRegistry::init('Game');
             $this->Userentry = ClassRegistry::init('Userentry');
@@ -55,16 +16,29 @@
             $playerData = $this->printPlayersData($players, $userentries, $schedule, $schools);
             return $playerData;
         }
-        /**
+      
+      public function getAvailablePlayers() {
+            $players = array();
+            $players['QB'] = $this->getAvailablePlayersByPosition(array('QB'));
+            $players['RB'] = $this->getAvailablePlayersByPosition(array('RB'));
+            $players['WR'] = $this->getAvailablePlayersByPosition(array('WR'));
+            $players['F'] = $this->getAvailablePlayersByPosition(array('RB','WR','TE'));
+            $players['K'] = $this->getAvailablePlayersByPosition(array('K'));
+            $players['D'] = $this->getAvailablePlayersByPosition(array('D'));
+
+            return $players;
+        }
+      
+      /**
         Gets the list of players available by the given position.
         Restricts based on previous picks and schools who have already played in that week
         **/
-        private function getAvailablePlayersByPosition($position, $increment) {
+        private function getAvailablePlayersByPosition($position) {
             $this->Playerentry->unbindModel(array('belongsTo' => array('Week')));
             $this->unbindModel(array('hasMany' => array('Playerentry')));
             $tempPlayerEntries = $this->Playerentry->find('all',
                 array(
-                    'conditions' => array('position' => $position),
+                    'conditions' => array('position' => $position, 'Player.year' => Configure::write('current.year')),
                     'fields' => array('SUM(points)',
                         'SUM(pass_yards)','SUM(pass_tds)',
                         'SUM(rush_yards)','SUM(rush_tds)',
@@ -76,7 +50,6 @@
                         'Player.name, Player.school_id, Player.id, Player.position'),
                     'group' => array('Player.id'),
                     'recursive' => 2,
-                    'limit' => $increment,
                     'order' => array('SUM(points) DESC')
                 )
             );
@@ -87,6 +60,7 @@
             }
             return $playerEntries;
         }
+        
 
         public function parser($playerRow, $schoolId) {
             $columns = $playerRow->find('td');
@@ -94,7 +68,6 @@
             $espnId = $this->getEspnId($columns[1]->find('a',0)->href);
             $name = $columns[1]->plaintext;
             $position = $columns[2]->plaintext;
-            $year = $this->getGraduationYear($columns[5]->plaintext);
 
             $player = null;
             $players = $this->find('all', array('conditions' => array('name' => $name), 'recursive' => -1));
@@ -110,7 +83,7 @@
 
             if($player != null) {
                 $player['Player']['school_id'] = $schoolId;
-                $player['Player']['year'] = $year;
+                $player['Player']['year'] = Configure::write('current.year');
                 $player['Player']['position'] = $position;
                 $player['Player']['espn_id'] = $espnId;
             }
@@ -124,30 +97,6 @@
             } else {
                 echo $player['Player']['name']." not saved successfully.\n";
             }
-        }
-
-        public function getGraduationYear($class) {
-            $currentYear = 2015;
-            $graduationYear = 0;
-            switch($class) {
-                case "FR":
-                case "Freshman":
-                    $graduationYear = $currentYear + 3;
-                    break;
-                case "SO":
-                case "Sophomore":
-                    $graduationYear = $currentYear + 2;
-                    break;
-                case "JR":
-                case "Junior":
-                    $graduationYear = $currentYear + 1;
-                    break;
-                case "SR":
-                case "Senior":
-                    $graduationYear = $currentYear;
-                    break;
-            }
-            return $graduationYear;
         }
 
         public function getEspnId($espnLink) {

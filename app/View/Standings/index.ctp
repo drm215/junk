@@ -79,8 +79,3 @@ $(document).ready(function() {
     });
 });
 </script>
-
-<?php
-    pr($detailsArray);
-    pr($totalPointsArray);
-?>
