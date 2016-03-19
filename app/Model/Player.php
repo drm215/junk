@@ -38,7 +38,7 @@
             $this->unbindModel(array('hasMany' => array('Playerentry')));
             $tempPlayerEntries = $this->Playerentry->find('all',
                 array(
-                    'conditions' => array('position' => $position, 'Player.year' => Configure::write('current.year')),
+                    'conditions' => array('position' => $position, 'Player.year' => Configure::read('current.year')),
                     'fields' => array('SUM(points)',
                         'SUM(pass_yards)','SUM(pass_tds)',
                         'SUM(rush_yards)','SUM(rush_tds)',
@@ -83,7 +83,7 @@
 
             if($player != null) {
                 $player['Player']['school_id'] = $schoolId;
-                $player['Player']['year'] = Configure::write('current.year');
+                $player['Player']['year'] = Configure::read('current.year');
                 $player['Player']['position'] = $position;
                 $player['Player']['espn_id'] = $espnId;
             }

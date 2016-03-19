@@ -3,7 +3,7 @@
 
         public function index() {
             $this->Userentry->unbindModel(array('belongsTo' => array('QB', 'RB1', 'RB2', 'WR1', 'WR2', 'F', 'K', 'D', 'User')));
-            $records = $this->Userentry->find('all', array('conditions' => array('Userentry.user_id' => $this->Auth->user('id'), 'year' => Configure::write('current.year')), 'recursive' => 0));
+            $records = $this->Userentry->find('all', array('conditions' => array('Userentry.user_id' => $this->Auth->user('id'), 'year' => Configure::read('current.year')), 'recursive' => 0));
             $data = array();
             $this->Playerentry = ClassRegistry::init('Playerentry');
             foreach ($records as $record) {
@@ -124,7 +124,7 @@
             $this->Userentry->K->unbindModel(array('hasMany' => array('Playerentry')));
             $this->Userentry->D->unbindModel(array('hasMany' => array('Playerentry')));
 
-            $userentry = $this->Userentry->find('first', array('conditions' => array('week_id' => $weekId, 'user_id' => $this->Auth->user('id'), 'Userentry.year' => Configure::write('current.year')), 'recursive' => 2));
+            $userentry = $this->Userentry->find('first', array('conditions' => array('week_id' => $weekId, 'user_id' => $this->Auth->user('id'), 'Userentry.year' => Configure::read('current.year')), 'recursive' => 2));
             return $userentry;
         }
 
@@ -141,7 +141,7 @@
 
             $this->Standing = ClassRegistry::init('Standing');
             $this->Standing->unbindModel(array('belongsTo' => array('User')));
-            $this->set('records', $this->Standing->find('all', array('conditions' => array('user_id' => $UserId/* , 'Week.lock_time < NOW()' */, 'year' => Configure::write('current.year')))));
+            $this->set('records', $this->Standing->find('all', array('conditions' => array('user_id' => $UserId/* , 'Week.lock_time < NOW()' */, 'year' => Configure::read('current.year')))));
         }
 
     public function detail($UserId, $weekId) {
@@ -155,7 +155,7 @@
         $this->Week = ClassRegistry::init('Week');
         $this->Playerentry = ClassRegistry::init('Playerentry');
 
-        $record = $this->Userentry->find('first', array('conditions' => array('user_id' => $UserId, 'week_id' => $weekId, 'year' => Configure::write('current.year'))));
+        $record = $this->Userentry->find('first', array('conditions' => array('user_id' => $UserId, 'week_id' => $weekId, 'year' => Configure::read('current.year'))));
 
         if($this->Auth->user('id') != $UserId) {
             $week = $this->Week->find('first', array('conditions' => array('id' => $weekId), 'recursive' => -1));
