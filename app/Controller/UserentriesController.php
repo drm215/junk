@@ -128,8 +128,6 @@
             return $userentry;
         }
 
-
-
         public function view($UserId) {
             if (!$UserId) {
                 throw new NotFoundException(__('Invalid User'));
@@ -292,7 +290,7 @@
         // loop through all the player records and build the json array
         foreach($players[$position] as $player) {
             $opponentID = $this->getOpponentID($player, $schedule);
-            $espnId = $this->getOpponentEspnID($player, $schedule);
+            $espnId = $player['Player']['School']['espn_id'];
             $opponent = "";
             if($opponentID != "") {
                 $opponent = '<img src="../../app/webroot/img/logos/' . $schools[$opponentID]['espn_id'] . '.png" title="' . $schools[$opponentID]['name'] . '">';
@@ -310,6 +308,7 @@
                 array(
                     $player['Player']['id'],
                     $player['Player']['position'],
+                    $espnId,
                     $button,
                     $playerName,
                     $opponent,
@@ -380,20 +379,7 @@
         }
         return "";
     }
-    private function getOpponentEspnID($player, $schedule) {
-        if(isset($schedule[$player['Player']['school_id']])) {
-            //CakeLog::write('debug', $schedule[$player['Player']['school_id']]);
-            $awaySchoolId = $schedule[$player['Player']['school_id']]['Game']['away_school_id'];
-            $homeSchoolId = $schedule[$player['Player']['school_id']]['Game']['home_school_id'];
-            if($player['Player']['school_id'] == $awaySchoolId) {
-                $schoolId = $homeSchoolId;
-            } else {
-                $schoolId = $awaySchoolId;
-            }
-            return $schoolId;
-        }
-        return "";
-    }
+      
     private function getPlayerSchool($player) {
         if(isset($player['Player']['School']['name'])) {
             return $player['Player']['School']['name'];

@@ -20,7 +20,7 @@ var playerData = {
              "dataType": "json",
              "order": [5, 'desc'],
              "columnDefs": [{
-                 "targets": [0,1],
+                 "targets": [0,1,2],
                  "visible": false
              }],
              "processing": true
@@ -112,22 +112,27 @@ var playerData = {
     },
     getTooltip: function(position, id) {
         var player = null;
+        var name = null;
+        var school = null;
+        var pposition = null;
+        var espn_id = null;
         if(id) {
             player = playerData.data[position].data[id];
             var nameSchool = player[3].split('<br/>');
-            var name = nameSchool[0];
-            var school = nameSchool[1];
-            var pposition = player[1];
+            name = nameSchool[0];
+            school = nameSchool[1];
+            pposition = player[1];
+            espn_id = player[2];
         } else {
             player = playerData.userentry[position];
-            var name = player['name'];
-            var school = player['School']['name'];
-            var pposition = player['position'];
+            name = player.name;
+            school = player.School.name;
+            pposition = player.position;
+            espn_id = player.School.espn_id;
         }
         var playerEntry = playerData.playerentries[position];
-        //console.log(player);
         var html = '<div id="tooltip-player-info" class="tooltip-player-info">';
-        html += '<h3><img src="../../app/webroot/img/logos/2459.png" title="Northern Illinois Huskies"> ' + name + '</h3>';
+        html += '<h3><img src="../../app/webroot/img/logos/' + espn_id + '.png" title="' + school +'"> ' + name + '</h3>';
         html += pposition + ' | ' + school;
         html += '</div>';
         if(playerEntry && playerEntry['Playerentry']) {

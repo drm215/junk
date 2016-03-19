@@ -939,3 +939,19 @@ pre {
     max-width: 1200px !important;
     overflow:auto !important;
 }
+
+#player-data td {
+	text-align: right;
+}
+
+#player-data td:nth-child(3) {
+ text-align:center !important;
+}
+
+#player-data td:nth-child(1) {
+	text-align:left !important;
+}
+
+#player-data td:nth-child(2) {
+	text-align:left !important;
+}
