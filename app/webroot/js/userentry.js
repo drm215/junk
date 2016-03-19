@@ -118,7 +118,7 @@ var playerData = {
         var espn_id = null;
         if(id) {
             player = playerData.data[position].data[id];
-            var nameSchool = player[3].split('<br/>');
+            var nameSchool = player[4].split('<br/>');
             name = nameSchool[0];
             school = nameSchool[1];
             pposition = player[1];
@@ -196,7 +196,7 @@ var playerData = {
         var data = playerData.data[playerData.getBasePosition($('#hidden-position').val())].data[id];
         var playerName = data[4].slice(0, data[4].indexOf('<br/>'));
         var position = $('.highlight').attr('id').split('-')[0];
-        playerData.setSelectedPlayer(position, data[0], data[4].slice(0, data[4].indexOf('<br/>')), playerData.getTooltip($('#hidden-position').val(), id));
+        playerData.setSelectedPlayer(position, data[0], playerName, playerData.getTooltip($('#hidden-position').val(), id));
         playerData.validatePlayersUnique();
     },
     triggerErrors: function() {
