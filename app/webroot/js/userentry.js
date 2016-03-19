@@ -194,9 +194,9 @@ var playerData = {
     },
     selectPlayer: function(id) {
         var data = playerData.data[playerData.getBasePosition($('#hidden-position').val())].data[id];
-        var playerName = data[3].slice(0, data[3].indexOf('<br/>'));
+        var playerName = data[4].slice(0, data[4].indexOf('<br/>'));
         var position = $('.highlight').attr('id').split('-')[0];
-        playerData.setSelectedPlayer(position, data[0], data[3].slice(0, data[3].indexOf('<br/>')), playerData.getTooltip($('#hidden-position').val(), id));
+        playerData.setSelectedPlayer(position, data[0], data[4].slice(0, data[4].indexOf('<br/>')), playerData.getTooltip($('#hidden-position').val(), id));
         playerData.validatePlayersUnique();
     },
     triggerErrors: function() {
@@ -213,31 +213,38 @@ var playerData = {
         var wr1 = false;
         var wr2 = false;
         var f = false;
+        var error = false;
         
         if(!$.isEmptyObject($('#rb1-player-name').text()) && $('#rb1-player-name').text() === $('#rb2-player-name').text()) {
             rb1 = true;
             rb2 = true;
+            error = true;
         }
         if(!$.isEmptyObject($('#rb1-player-name').text()) && $('#rb1-player-name').text() === $('#f-player-name').text()) {
             rb1 = true;
             f = true;
+            error = true;
         }
         if(!$.isEmptyObject($('#rb2-player-name').text()) && $('#rb2-player-name').text() === $('#f-player-name').text()) {
             rb2 = true;
             f = true;
+            error = true;
         }
         
         if(!$.isEmptyObject($('#wr1-player-name').text()) && $('#wr1-player-name').text() === $('#wr2-player-name').text()) {
             wr1 = true;
             wr2 = true;
+            error = true;
         }
         if(!$.isEmptyObject($('#wr1-player-name').text()) && $('#wr1-player-name').text() === $('#f-player-name').text()) {
             wr1 = true;
             f = true;
+            error = true;
         }
         if(!$.isEmptyObject($('#wr2-player-name').text()) && $('#wr2-player-name').text() === $('#f-player-name').text()) {
             wr2 = true;
             f = true;
+            error = true;
         }
         
         $('.player-data-error').html('');
@@ -256,5 +263,14 @@ var playerData = {
         if(f) {
             $('#f-player-name-error').html('<br/>This player cannot be used more than once.');
         }
+        playerData.toggleSubmitButton(error);
+    },
+    toggleSubmitButton: function(error) {
+      $('.submit').find(':submit').prop('disabled', error);
+      var opacity = '1';
+      if(error) {
+        opacity = '.5';
+      }
+      $('.submit').find(':submit').css('opacity', opacity);
     }
 };

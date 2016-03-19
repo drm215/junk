@@ -21,72 +21,72 @@
             $this->set('weeks', $this->Week->find('all', array('fields' => array('id', 'name'), 'recursive' => 0)));
         }
 
-        private function saveUserentry($userentry, $data) {
-            if ($this->request->is(array('post', 'put'))) {
+//         private function saveUserentry($userentry, $data) {
+//             if ($this->request->is(array('post', 'put'))) {
 
-                $schoolLocked = false;
-                if(isset($userentry['QB']['school_locked'])) {
-                    $schoolLocked = $userentry['QB']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['qb_id'] = $data['Userentry']['qb_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['RB1']['school_locked'])) {
-                    $schoolLocked = $userentry['RB1']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['rb1_id'] = $data['Userentry']['rb1_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['RB2']['school_locked'])) {
-                    $schoolLocked = $userentry['RB2']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['rb2_id'] = $data['Userentry']['rb2_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['WR1']['school_locked'])) {
-                    $schoolLocked = $userentry['WR1']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['wr1_id'] = $data['Userentry']['wr1_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['WR2']['school_locked'])) {
-                    $schoolLocked = $userentry['WR2']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['wr2_id'] = $data['Userentry']['wr2_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['K']['school_locked'])) {
-                    $schoolLocked = $userentry['K']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['k_id'] = $data['Userentry']['k_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['F']['school_locked'])) {
-                    $schoolLocked = $userentry['F']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['f_id'] = $data['Userentry']['f_id'];
-                }
-                $schoolLocked = false;
-                if(isset($userentry['D']['school_locked'])) {
-                    $schoolLocked = $userentry['D']['school_locked'];
-                }
-                if($schoolLocked == false) {
-                    $userentry['Userentry']['d_id'] = $data['Userentry']['d_id'];
-                }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['QB']['school_locked'])) {
+//                     $schoolLocked = $userentry['QB']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['qb_id'] = $data['Userentry']['qb_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['RB1']['school_locked'])) {
+//                     $schoolLocked = $userentry['RB1']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['rb1_id'] = $data['Userentry']['rb1_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['RB2']['school_locked'])) {
+//                     $schoolLocked = $userentry['RB2']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['rb2_id'] = $data['Userentry']['rb2_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['WR1']['school_locked'])) {
+//                     $schoolLocked = $userentry['WR1']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['wr1_id'] = $data['Userentry']['wr1_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['WR2']['school_locked'])) {
+//                     $schoolLocked = $userentry['WR2']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['wr2_id'] = $data['Userentry']['wr2_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['K']['school_locked'])) {
+//                     $schoolLocked = $userentry['K']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['k_id'] = $data['Userentry']['k_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['F']['school_locked'])) {
+//                     $schoolLocked = $userentry['F']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['f_id'] = $data['Userentry']['f_id'];
+//                 }
+//                 $schoolLocked = false;
+//                 if(isset($userentry['D']['school_locked'])) {
+//                     $schoolLocked = $userentry['D']['school_locked'];
+//                 }
+//                 if($schoolLocked == false) {
+//                     $userentry['Userentry']['d_id'] = $data['Userentry']['d_id'];
+//                 }
 
-                if ($this->Userentry->save($userentry)) {
-                    $this->Session->setFlash(__('Your entry has been updated.'));
-                    return $this->redirect(array('action' => 'index'));
-                }
-            }
-        }
+//                 if ($this->Userentry->save($userentry)) {
+//                     $this->Session->setFlash(__('Your entry has been updated.'));
+//                     return $this->redirect(array('action' => 'index'));
+//                 }
+//             }
+//         }
 
         private function getGamesSchedule($weekId) {
             $this->Game = ClassRegistry::init('Game');
@@ -265,15 +265,22 @@
         $this->set('players', json_encode($players, JSON_HEX_APOS));
         $this->set('playerentries', json_encode($playerentries, JSON_HEX_APOS));
     }
+      
+   public function getPlayerDataDebug($weekId, $userId, $position) {
+    return $this->getPlayerData($weekId, $userId, $position, true);     
+   }
 
-    public function getPlayerData($weekId, $userId, $position) {
+    public function getPlayerData($weekId, $userId, $position, $debug = false) {
         CakeLog::write('debug', "getPlayerData:");
         CakeLog::write('debug', "weekId: " . $weekId);
         CakeLog::write('debug', "userId: " . $userId);
         CakeLog::write('debug', "position: " . $position);
-
-        $layout = 'ajax'; //<-- No LAYOUT VERY IMPORTANT!!!!!
-        $this->autoRender = false;  // <-- NO RENDER THIS METHOD HAS NO VIEW VERY IMPORTANT!!!!!
+      
+        if(!$debug) {
+          $layout = 'ajax'; //<-- No LAYOUT VERY IMPORTANT!!!!!
+          $this->autoRender = false;  // <-- NO RENDER THIS METHOD HAS NO VIEW VERY IMPORTANT!!!!!
+        }
+      
         $this->Player = ClassRegistry::init('Player');
         $this->Week = ClassRegistry::init('Week');
         $this->School = ClassRegistry::init('School');
@@ -386,5 +393,10 @@
         }
         return "";
     }
+
+      public function test() {
+        $playerData = $this->getPlayerData(14, 1, 'QB', true);
+        pr($playerData);
+      }
 }
 ?>
