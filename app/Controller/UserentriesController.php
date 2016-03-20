@@ -339,7 +339,7 @@
                 );
             $buttonId++;
         }
-        $json = '{"data":'.json_encode($data).'}';
+        $json = '{"data":'.$this->safe_json_encode($data).'}';
         return $json;
     }
 
